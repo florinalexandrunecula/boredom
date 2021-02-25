@@ -6,7 +6,7 @@ function App() {
   return (
       <Router>
         <Switch>
-          <Route path="/" exact component={TypingGame} />
+          <Route path="/boredom" exact component={TypingGame} />
         </Switch>
       </Router>
   )
