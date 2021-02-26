@@ -98,9 +98,17 @@ const TypingGame = () => {
                         {incomingChars.substr(0, 20)}
                     </span>
                 </p>
-                <h3>WPM(words per minute): {wpm}</h3>
-                <h3>Mistakes: {mistakes}</h3>
-                <h3>Accuracy: {accuracy}%</h3>
+                <div className="PageWrapper">
+                    <div className="Row">
+                        <div className="Column">
+                            <h3>WPM(words per minute): {wpm}</h3>
+                        </div>
+                        <div className="Column">
+                            <h3>Mistakes: {mistakes}</h3>
+                        </div>
+                    </div>
+                    <h3>Accuracy: {accuracy}%</h3>
+                </div>
             </header>
         </div>
     );

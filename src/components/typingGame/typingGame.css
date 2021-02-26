@@ -94,3 +94,16 @@ li img {
     padding: 14px 16px;
     margin-right: 25px;
 }
+
+.Row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.Column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
