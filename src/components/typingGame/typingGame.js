@@ -15,7 +15,7 @@ const TypingGame = () => {
     document.title = "Typing Game";
 
     const [leftPadding, setLeftPadding] = useState(
-        new Array(20).fill(' ').join(' '),
+        new Array(15).fill(' ').join(' '),
     );
     const [outgoingChars, setOutgoingChars] = useState('');
     const [currentChar, setCurrentChar] = useState(initialWords.charAt(0));
@@ -87,16 +87,15 @@ const TypingGame = () => {
                     <img src={keyboard} className="Keyboard-icon" alt="keyboard"/>
                 </div>
                 <h2>Type as fast as you can!</h2>
-                <input type="text"/>
                 <p className="Character">
                     <span className="Character-out">
-                        {(leftPadding + outgoingChars).slice(-20)}
+                        {(leftPadding + outgoingChars).slice(-15)}
                     </span>
                     <span className="Character-current">
                         {currentChar}
                     </span>
                     <span>
-                        {incomingChars.substr(0, 20)}
+                        {incomingChars.substr(0, 15)}
                     </span>
                 </p>
                 <div className="PageWrapper">
