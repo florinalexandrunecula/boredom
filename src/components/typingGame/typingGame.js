@@ -1,10 +1,12 @@
 import logo from '../../circle.svg';
 import keyboard from '../../keyboard.svg';
+import bored from '../../bored.svg';
 import './typingGame.css';
 import { generate } from '../../utils/words'
 import useKeyPress from "../../hooks/useKeyPress";
 import React, { useState } from 'react';
 import { currentTime } from "../../utils/time";
+import {Link} from "react-router-dom";
 
 const initialWords = generate();
 console.log(initialWords);
@@ -74,6 +76,11 @@ const TypingGame = () => {
 
     return (
         <div className="App">
+            <ul>
+                <li><img src={bored} className="Bored" alt="boredom" /></li>
+                <li><Link to="/boredom">Home</Link></li>
+                <li><Link to="/boredom/typing">Typing Game</Link></li>
+            </ul>
             <header className="App-header">
                 <div className="Container">
                     <img src={logo} className="App-logo" alt="logo" />
