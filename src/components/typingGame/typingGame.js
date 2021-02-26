@@ -87,6 +87,7 @@ const TypingGame = () => {
                     <img src={keyboard} className="Keyboard-icon" alt="keyboard"/>
                 </div>
                 <h2>Type as fast as you can!</h2>
+                <input type="text"/>
                 <p className="Character">
                     <span className="Character-out">
                         {(leftPadding + outgoingChars).slice(-20)}
