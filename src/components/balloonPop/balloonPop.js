@@ -11,6 +11,9 @@ const BalloonPop = () => {
         const targetRef = useRef();
         const [dimensions, setDimensions] = useState({ width:0, height: 0 });
         let dotPosition = {x: 0, y: 0};
+        let timeout = false;
+        let delay = 250;
+        let calls = 0;
 
         const [styles, setStyles] = useState({
             height: '75px',
@@ -24,15 +27,23 @@ const BalloonPop = () => {
             return Math.random() * (max - min) + min;
         }
 
-        useLayoutEffect(() => {
+        /*useLayoutEffect(() => {
             if (targetRef.current) {
                 setDimensions({
                     width: targetRef.current.offsetWidth,
                     height: targetRef.current.offsetHeight
                 });
             }
-        }, []);
+        }, []);*/
 
+        function getSize() {
+            if (targetRef.current) {
+                setDimensions({
+                    width: targetRef.current.offsetWidth,
+                    height: targetRef.current.offsetHeight
+                });
+            }
+        }
         function changePosition() {
             dotPosition.x = getRandomArbitrary(0, dimensions.width - 75);
             dotPosition.y = getRandomArbitrary(100, dimensions.height);
@@ -47,8 +58,15 @@ const BalloonPop = () => {
             });
         }
 
+        window.addEventListener('resize', function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(getSize, delay);
+        });
+
         return (
             <div className = "GameArea" ref={targetRef}>
+                <p>{dimensions.height}</p>
+                <p>{dimensions.width}</p>
                 <span style={styles} onClick={changePosition}></span>
             </div>
         );
