@@ -1,13 +1,13 @@
 import './balloonPop.css';
 import React from 'react';
-import { useRef, useState } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 import { Link } from 'react-router-dom';
 import bored from '../../bored.svg';
 
 const BalloonPop = () => {
     document.title = "Balloon Pop";
 
-    const GameArea = props => {
+    const GameArea = () => {
         const targetRef = useRef();
         const [dimensions, setDimensions] = useState({ width:0, height: 0 });
         let dotPosition = {x: 0, y: 0};
@@ -20,7 +20,16 @@ const BalloonPop = () => {
             backgroundColor: '#09d3ac',
             borderRadius: '50%',
             position: 'absolute',
-        })
+        });
+
+        useLayoutEffect(() => {
+            if (targetRef.current) {
+                setDimensions({
+                    width: targetRef.current.offsetWidth,
+                    height: targetRef.current.offsetHeight
+                });
+            }
+        }, []);
 
         function getRandomArbitrary(min, max) {
             return Math.random() * (max - min) + min;
@@ -33,10 +42,6 @@ const BalloonPop = () => {
                     height: targetRef.current.offsetHeight
                 });
             }
-        }
-
-        window.onload = function() {
-            getSize();
         }
 
         function changePosition() {
@@ -66,6 +71,7 @@ const BalloonPop = () => {
             </div>
         );
     };
+
 
     return (
         <div className="App">
