@@ -79,7 +79,8 @@ const TypingGame = () => {
             <ul>
                 <li><img src={bored} className="Bored" alt="boredom" /></li>
                 <li><Link to="/boredom">Home</Link></li>
-                <li><Link to="/boredom/typing">Typing Game</Link></li>
+                <li className="Active"><Link to="/boredom/typing">Typing Game</Link></li>
+                <li><Link to="/boredom/balloon">Balloon Pop</Link></li>
             </ul>
             <header className="App-header">
                 <div className="Container">

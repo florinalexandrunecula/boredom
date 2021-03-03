@@ -95,6 +95,10 @@ li img {
     margin-right: 25px;
 }
 
+.Active {
+    background-color: #045445;
+}
+
 .Row {
     display: flex;
     flex-direction: row;

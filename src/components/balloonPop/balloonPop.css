@@ -74,3 +74,11 @@ li img {
 .Active {
     background-color: #045445;
 }
+
+.GameArea {
+    margin-top: 25px;
+    height: 80vh;
+    width: 99vw;
+    border-style: solid;
+    border-color: #09d3ac;
+}
