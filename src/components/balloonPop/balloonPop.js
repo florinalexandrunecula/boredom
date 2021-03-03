@@ -13,7 +13,6 @@ const BalloonPop = () => {
         let dotPosition = {x: 0, y: 0};
         let timeout = false;
         let delay = 250;
-        let calls = 0;
 
         const [styles, setStyles] = useState({
             height: '75px',
@@ -27,15 +26,6 @@ const BalloonPop = () => {
             return Math.random() * (max - min) + min;
         }
 
-        /*useLayoutEffect(() => {
-            if (targetRef.current) {
-                setDimensions({
-                    width: targetRef.current.offsetWidth,
-                    height: targetRef.current.offsetHeight
-                });
-            }
-        }, []);*/
-
         function getSize() {
             if (targetRef.current) {
                 setDimensions({
@@ -44,6 +34,9 @@ const BalloonPop = () => {
                 });
             }
         }
+
+        getSize();
+
         function changePosition() {
             dotPosition.x = getRandomArbitrary(0, dimensions.width - 75);
             dotPosition.y = getRandomArbitrary(100, dimensions.height);
