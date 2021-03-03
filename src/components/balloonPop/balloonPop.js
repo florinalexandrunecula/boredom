@@ -1,6 +1,6 @@
 import './balloonPop.css';
 import React from 'react';
-import { useRef, useLayoutEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from 'react-router-dom';
 import bored from '../../bored.svg';
 
@@ -35,7 +35,9 @@ const BalloonPop = () => {
             }
         }
 
-        getSize();
+        window.onload = function() {
+            getSize();
+        }
 
         function changePosition() {
             dotPosition.x = getRandomArbitrary(0, dimensions.width - 75);
