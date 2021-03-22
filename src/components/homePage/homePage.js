@@ -26,6 +26,9 @@ const HomePage = () => {
                 <p>
                     This app was designed by Alexandru Necula
                 </p>
+                <p>
+                    University of Bucharest, 2021
+                </p>
             </header>
         </div>
     );
