@@ -39,7 +39,7 @@ const BalloonPop = () => {
         function changePosition() {
             setCorrectClicks(correctClicks + 1);
             dotPosition.x = getRandomArbitrary(0, dimensions.width - 75);
-            dotPosition.y = getRandomArbitrary(165, dimensions.height);
+            dotPosition.y = getRandomArbitrary(180, dimensions.height);
             setStyles({
                 height: '75px',
                 width: '75px',
@@ -69,7 +69,7 @@ const BalloonPop = () => {
 
         function resetGame() {
             dotPosition.x = 0;
-            dotPosition.y = 165;
+            dotPosition.y = 180;
 
             setClicks(0);
             setCorrectClicks(0);
