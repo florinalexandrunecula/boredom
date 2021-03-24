@@ -64,41 +64,6 @@
     justify-content: center;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #282c34;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 25px;
-}
-
-li a:hover {
-    background-color: #09d3ac;
-}
-
-li img {
-    display: block;
-    padding: 14px 16px;
-    margin-right: 25px;
-}
-
-.Active {
-    background-color: #045445;
-}
-
 .Row {
     display: flex;
     flex-direction: row;

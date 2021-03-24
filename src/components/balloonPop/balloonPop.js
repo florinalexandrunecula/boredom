@@ -1,8 +1,6 @@
 import './balloonPop.css';
 import React from 'react';
 import { useRef, useState, useLayoutEffect } from "react";
-import { Link } from 'react-router-dom';
-import bored from '../../bored.svg';
 import balloon from '../../balloon.svg';
 import reset from '../../settings.svg';
 
@@ -100,12 +98,6 @@ const BalloonPop = () => {
 
     return (
         <div className="App">
-            <ul>
-                <li><img src={bored} className="Bored" alt="boredom" /></li>
-                <li><Link to="/boredom">Home</Link></li>
-                <li><Link to="/boredom/typing">Typing Game</Link></li>
-                <li className="Active"><Link to="/boredom/balloon">Balloon Pop</Link></li>
-            </ul>
             <header className="App-header">
                 <GameArea />
             </header>

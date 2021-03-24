@@ -1,7 +1,5 @@
 import './homePage.css';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import bored from '../../bored.svg';
 import clock from "../../wall-clock.svg";
 import recycle from "../../recycle.svg";
 
@@ -10,12 +8,6 @@ const HomePage = () => {
 
     return (
         <div className="App">
-            <ul>
-                <li><img src={bored} className="Bored" alt="boredom" /></li>
-                <li className="Active"><Link to="/boredom">Home</Link></li>
-                <li><Link to="/boredom/typing">Typing Game</Link></li>
-                <li><Link to="/boredom/balloon">Balloon Pop</Link></li>
-            </ul>
             <header className="App-header">
                 <div className="Container">
                     <img src={recycle} className="Recycle" alt="recycle" />
