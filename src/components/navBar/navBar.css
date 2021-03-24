@@ -75,7 +75,7 @@
     .nav-menu.active {
         background: #24282f;
         left: -40px;
-        opacity: 1;
+        opacity: 0.99;
         transition: all 0.5s ease;
         z-index: 1;
     }
