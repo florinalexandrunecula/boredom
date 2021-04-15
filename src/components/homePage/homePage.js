@@ -1,10 +1,10 @@
-import './homePage.css';
-import React from 'react';
-import clock from "../../wall-clock.svg";
-import recycle from "../../recycle.svg";
+import './homePage.css'
+import React from 'react'
+import clock from "../../wall-clock.svg"
+import recycle from "../../recycle.svg"
 
 const HomePage = () => {
-    document.title = "Home Page";
+    document.title = "Home Page"
 
     return (
         <div className="App">
@@ -23,7 +23,7 @@ const HomePage = () => {
                 </p>
             </header>
         </div>
-    );
+    )
 }
 
-export default HomePage;
+export default HomePage

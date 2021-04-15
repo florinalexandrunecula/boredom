@@ -1,9 +1,9 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import TypingGame from "./components/typingGame/typingGame";
-import HomePage from "./components/homePage/homePage";
-import BalloonPop from "./components/balloonPop/balloonPop";
-import NavBar from "./components/navBar/navBar";
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import TypingGame from "./components/typingGame/typingGame"
+import HomePage from "./components/homePage/homePage"
+import BalloonPop from "./components/balloonPop/balloonPop"
+import NavBar from "./components/navBar/navBar"
 
 function App() {
   return (
@@ -18,4 +18,4 @@ function App() {
   )
 }
 
-export default App;
+export default App
