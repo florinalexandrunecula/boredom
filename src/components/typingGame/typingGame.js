@@ -26,7 +26,7 @@ const TypingGame = () => {
     const [accuracy, setAccuracy] = useState(100)
 
     function updateBackend(json) {
-        fetch('http://137.117.166.239:5000/score/', {
+        fetch('https://137.117.166.239:5000/score/', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
