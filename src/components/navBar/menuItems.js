@@ -1,17 +1,17 @@
 export const MenuItems = [
     {
         title: "Home",
-        url: "/boredom/",
+        url: "/",
         cName: "nav-links"
     },
     {
         title: "Typing Game",
-        url: "/boredom/typing",
+        url: "/typing",
         cName: "nav-links"
     },
     {
         title: "Balloon Pop",
-        url: "/boredom/balloon",
+        url: "/balloon",
         cName: "nav-links"
     },
     {
