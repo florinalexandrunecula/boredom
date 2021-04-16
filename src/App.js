@@ -10,7 +10,7 @@ function App() {
       <Router>
           <NavBar/>
           <Switch>
-              <Route path="/boredom" exact component={HomePage} />
+              <Route path="/boredom/" exact component={HomePage} />
               <Route path="/boredom/typing" exact component={TypingGame} />
               <Route path="/boredom/balloon" exact component={BalloonPop} />
           </Switch>
