@@ -11,6 +11,10 @@ class NavBar extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
 
+    liClick = () => {
+        this.handleClick()
+    }
+
     render() {
         return(
             <nav className="NavBarItems">
@@ -21,7 +25,7 @@ class NavBar extends Component {
                 <ul className={ this.state.clicked ? 'nav-menu active' : 'nav-menu' }>
                     {MenuItems.map((item, index) => {
                         return (
-                            <li key={index}>
+                            <li key={index} onClick={this.liClick}>
                                 <Link className={item.cName} to={item.url}>
                                     {item.title}
                                 </Link>

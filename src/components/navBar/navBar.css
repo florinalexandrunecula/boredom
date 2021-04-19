@@ -63,7 +63,7 @@
     .nav-menu {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 100vw;
         height: 500px;
         position: absolute;
         top: 59px;
@@ -81,10 +81,12 @@
     }
 
     .nav-links {
-        text-align: center;
+        text-align: left;
         padding: 2rem;
-        width: 83%;
+        margin: 0 auto;
+        width: 92vw;
         display: table;
+        font-size: 1.5rem;
     }
 
     .nav-links:hover {
