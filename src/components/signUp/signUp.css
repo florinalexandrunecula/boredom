@@ -1,0 +1,88 @@
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: normal;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.Signup {
+    margin-top: 60px;
+    margin-left: 25px;
+    position: relative;
+    height: 200px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .Recycle {
+        animation: Recycle-spin infinite 20s linear;
+    }
+}
+
+@keyframes Recycle-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.Title {
+    color: #09d3ac;
+    font-size: 50px;
+}
+
+.Wrapper {
+    border: solid #011511;
+    border-radius: 20px;
+    margin: 25px;
+    width:35vw;
+}
+
+.Row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto auto 10px;
+    width: 90%;
+}
+
+.input {
+    font-size: 25px;
+    width: 90%;
+    border-radius: 10px;
+    margin: auto auto 10px;
+}
+
+.SubmitBtn {
+    font-size: 25px;
+    width: 90%;
+    border-radius: 10px;
+    background-color: #09d3ac;
+    margin: auto auto 10px;
+}
+
+@media screen and (max-width: 960px) {
+    .Wrapper {
+        margin: 25px;
+        width:60vw;
+    }
+
+    .Row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .input {
+        font-size: 30px;
+    }
+
+    .SubmitBtn {
+        font-size: 30px;
+    }
+}

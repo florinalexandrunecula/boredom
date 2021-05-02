@@ -43,6 +43,21 @@
     transition: all 0.2s ease-out;
 }
 
+.nav-links-hidden {
+    background-color: #057f67;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.nav-links-hidden:hover {
+    background-color: white;
+    color: #09d3ac;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
 .fa-bars {
     color: #09d3ac;
 }
@@ -87,6 +102,10 @@
         width: 92vw;
         display: table;
         font-size: 1.5rem;
+    }
+
+    .nav-links-hidden {
+        display: none;
     }
 
     .nav-links:hover {
@@ -135,10 +154,6 @@
         background: white;
         color: #09d3ac;
         transition: 250ms;
-    }
-
-    Button {
-        display: none;
     }
 }
 

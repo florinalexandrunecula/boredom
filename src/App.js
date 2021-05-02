@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import TypingGame from "./components/typingGame/typingGame"
 import HomePage from "./components/homePage/homePage"
 import BalloonPop from "./components/balloonPop/balloonPop"
+import Signup from "./components/signUp/signUp"
 import NavBar from "./components/navBar/navBar"
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
               <Route path="/" exact component={HomePage} />
               <Route path="/typing" exact component={TypingGame} />
               <Route path="/balloon" exact component={BalloonPop} />
+              <Route path="/signup" exact component={Signup} />
           </Switch>
       </Router>
   )
