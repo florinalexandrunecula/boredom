@@ -7,6 +7,8 @@ import Signup from "./components/signUp/signUp"
 import NavBar from "./components/navBar/navBar"
 import {AuthProvider} from "./context/authContext"
 import Login from "./components/logIn/login"
+import Dashboard from "./components/dashboard/dashboard"
+import PrivateRoute from "./utils/privateRoute"
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
                   <Route path="/balloon" exact component={BalloonPop} />
                   <Route path="/signup" exact component={Signup} />
                   <Route path="/login" exact component={Login} />
+                  <PrivateRoute path="/profile" exact component={Dashboard} />
               </Switch>
           </Router>
       </AuthProvider>

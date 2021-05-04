@@ -1,0 +1,19 @@
+.LogOut {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: #069;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.LogOut:hover {
+    color: #09d3ac;
+}
+
+.ProfileWrapper {
+    margin: 25px;
+    width:35vw;
+}

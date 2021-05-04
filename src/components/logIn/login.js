@@ -3,7 +3,7 @@ import { Form, Button, Card, Alert } from 'react-bootstrap'
 import "./login.css"
 import signupIcon from "../../writing.svg"
 import { useAuth } from "../../context/authContext"
-import { useHistory } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 export default function Login() {
     document.title = "Login"
@@ -51,6 +51,9 @@ export default function Login() {
                                     <Form.Control type="password" ref={passwordRef} required className="Row input"/>
                                 </Form.Group>
                                 <Button disabled={loading} type="submit" className="SubmitBtn">Log In</Button>
+                                <div className="Row">
+                                    Don't have an account? <Link className="App-Link" to="/signup">Sign Up</Link>
+                                </div>
                             </Form>
                         </div>
                     </Card.Body>
