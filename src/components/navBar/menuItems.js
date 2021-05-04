@@ -23,5 +23,15 @@ export const MenuItems = [
         title: "Sign up",
         url: "/signup",
         cName: "nav-links-mobile"
+    },
+    {
+        title: "Log Out",
+        url: "#",
+        cName: "nav-links-logged"
+    },
+    {
+        title: "Log Out",
+        url: "#",
+        cName: "nav-links-logged-mobile"
     }
 ]

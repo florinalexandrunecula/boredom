@@ -2,13 +2,16 @@ import './homePage.css'
 import React from 'react'
 import clock from "../../wall-clock.svg"
 import recycle from "../../recycle.svg"
+import {useAuth} from "../../context/authContext";
 
 const HomePage = () => {
     document.title = "Home Page"
+    const { currentUser } = useAuth()
 
     return (
         <div className="App">
             <header className="App-header">
+                <p>{currentUser && "Hello, " + currentUser.email + " !"}</p>
                 <div className="Container">
                     <img src={recycle} className="Recycle" alt="recycle" />
                     <img src={clock} className="Clock" alt="clock"/>
