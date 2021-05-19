@@ -9,6 +9,8 @@ import {AuthProvider} from "./context/authContext"
 import Login from "./components/logIn/login"
 import Dashboard from "./components/dashboard/dashboard"
 import PrivateRoute from "./utils/privateRoute"
+import GameJoin from "./components/gamesList/gameList"
+import TypingGameMulti from "./components/typingGameMulti/typingGameMulti"
 
 function App() {
   return (
@@ -18,9 +20,11 @@ function App() {
               <Switch>
                   <Route path="/" exact component={HomePage} />
                   <Route path="/typing" exact component={TypingGame} />
+                  <Route path="/typingMulti" exact component={TypingGameMulti} />
                   <Route path="/balloon" exact component={BalloonPop} />
                   <Route path="/signup" exact component={Signup} />
                   <Route path="/login" exact component={Login} />
+                  <Route path="/games" exact component={GameJoin} />
                   <PrivateRoute path="/profile" exact component={Dashboard} />
               </Switch>
           </Router>

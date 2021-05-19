@@ -7,7 +7,6 @@ import React, { useState } from 'react'
 import { currentTime } from "../../utils/time"
 
 const initialWords = generate()
-console.log(initialWords)
 
 const TypingGame = () => {
     document.title = "Typing Game"
@@ -25,22 +24,8 @@ const TypingGame = () => {
     const [characters, setCharacters] = useState(0)
     const [accuracy, setAccuracy] = useState(100)
 
-    function updateBackend(json) {
-        fetch('http://137.117.166.239:5000/score/', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(json)
-            }
-        )
-    }
-
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useKeyPress(key => {
-        let json = {'mistakes': mistakes, 'wpm': wpm, 'accuracy': accuracy};
-
         if (!startTime) {
             setStartTime(currentTime())
         }
@@ -71,25 +56,19 @@ const TypingGame = () => {
 
                 const durationInMinutes = (currentTime() - startTime) / 60000.0
 
-                json['wpm'] = ((wordCount + 1) / durationInMinutes).toFixed(2)
                 setWpm(((wordCount + 1) / durationInMinutes).toFixed(2))
             }
         } else {
-            json['mistakes'] = mistakes + 1
             setMistakes(mistakes + 1)
         }
 
         if (mistakes === 0) {
-            json['accuracy'] = 100
             setAccuracy(100)
         }
         else {
             let tempAcc = (characters / (characters + mistakes)) * 100
-            json['accuracy'] = tempAcc.toFixed(2)
             setAccuracy(tempAcc.toFixed(2))
         }
-
-        updateBackend(json)
     })
 
 
