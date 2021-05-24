@@ -40,16 +40,20 @@ const GameJoin = () => {
 
     return(
         <div className="App">
-            <header className="App-header-2">
-                <button onClick={getGames}>Refresh</button>
-                <button onClick={createGame}>Create Game</button>
-                <h1 className="Title">Available Games</h1>
+            <header className="App-header-list">
+                <h3 className="Title">Available Games</h3>
+                <h4 className="SmallerTitle">
+                    Ready to join a game? <button className="Refresh" href="#" onClick={getGames}>Refresh list</button>
+                </h4>
+                <h4 className="SmallerTitle">
+                    No games available? <button className="Refresh" href="#" onClick={createGame}>Create game</button>
+                </h4>
                 <table>
                     <tbody>
-                        <tr className="TableHead">
+                        <th>
                             <td className="Creator">Game Creator</td>
                             <td>Join</td>
-                        </tr>
+                        </th>
                         {gameList.map((game, index) => {
                             const { id, gameCreator } = game
                             return (

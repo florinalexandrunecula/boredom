@@ -1,4 +1,4 @@
-.App-header {
+.App-header-signup {
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
@@ -9,41 +9,26 @@
     color: white;
 }
 
-.Signup {
+.Signup-signup {
     margin-top: 60px;
     margin-left: 25px;
     position: relative;
     height: 200px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .Recycle {
-        animation: Recycle-spin infinite 20s linear;
-    }
-}
-
-@keyframes Recycle-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.Title {
+.Title-signup {
     color: #09d3ac;
     font-size: 50px;
 }
 
-.Wrapper {
+.Wrapper-signup {
     border: solid #011511;
     border-radius: 20px;
     margin: 25px;
-    width:35vw;
+    width:40vw;
 }
 
-.Row {
+.Row-signup {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -51,19 +36,19 @@
     width: 90%;
 }
 
-.App-Link {
+.App-Link-signup{
     text-decoration: none;
     color: #057f67;
 }
 
-.input {
-    font-size: 25px;
+.input-signup {
+    font-size: 20px;
     width: 90%;
     border-radius: 10px;
     margin: auto auto 10px;
 }
 
-.SubmitBtn {
+.SubmitBtn-signup {
     font-size: 25px;
     width: 90%;
     border-radius: 10px;
@@ -71,7 +56,7 @@
     margin: auto auto 10px;
 }
 
-.Alert {
+.Alert-signup {
     background-color: red;
     width: 90%;
     margin: auto auto 10px;
@@ -79,22 +64,22 @@
 }
 
 @media screen and (max-width: 960px) {
-    .Wrapper {
+    .Wrapper-signup {
         margin: 25px;
         width:90vw;
     }
 
-    .Row {
+    .Row-signup {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
 
-    .input {
+    .input-signup {
         font-size: 30px;
     }
 
-    .SubmitBtn {
+    .SubmitBtn-signup {
         font-size: 30px;
     }
 }

@@ -74,12 +74,12 @@ const TypingGame = () => {
 
     return (
         <div className="App">
-            <header className="App-header">
+            <header className="App-header-typing">
                 <div className="Container">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <img src={keyboard} className="Keyboard-icon" alt="keyboard"/>
+                    <img src={logo} className="App-logo-single" alt="logo" />
+                    <img src={keyboard} className="Keyboard-icon-single" alt="keyboard"/>
                 </div>
-                <h2>Type as fast as you can!</h2>
+                <h3>Type as fast as you can!</h3>
                 <p className="Character">
                     <span className="Character-out">
                         {(leftPadding + outgoingChars).slice(-15)}
@@ -94,13 +94,15 @@ const TypingGame = () => {
                 <div className="PageWrapper">
                     <div className="Row">
                         <div className="Column">
-                            <h3>WPM(words per minute): {wpm}</h3>
+                            <h4>WPM: {wpm}</h4>
                         </div>
                         <div className="Column">
-                            <h3>Mistakes: {mistakes}</h3>
+                            <h4>Mistakes: {mistakes}</h4>
+                        </div>
+                        <div className="Column">
+                            <h4>Accuracy: {accuracy}%</h4>
                         </div>
                     </div>
-                    <h3>Accuracy: {accuracy}%</h3>
                 </div>
             </header>
         </div>

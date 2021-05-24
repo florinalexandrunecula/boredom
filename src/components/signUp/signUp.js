@@ -36,31 +36,31 @@ export default function Signup() {
 
     return (
         <div className="App">
-            <header className="App-header">
+            <header className="App-header-signup">
                 <Card>
                     <Card.Body>
-                        <div className="Wrapper">
-                            <div className="Container">
-                                <img src={signupIcon} className="Signup" alt="clock"/>
+                        <div className="Wrapper-signup">
+                            <div className="Container-signup">
+                                <img src={signupIcon} className="Signup-signup" alt="clock"/>
                             </div>
-                            <h2 className="Title">Sign Up</h2>
-                            {error && <Alert className="Alert" variant="danger">{error}</Alert>}
+                            <h2 className="Title-signup">Sign Up</h2>
+                            {error && <Alert className="Alert-signup" variant="danger">{error}</Alert>}
                             <Form onSubmit={handleSubmit}>
-                                <Form.Group id="email">
-                                    <Form.Label className="Row">Email</Form.Label>
-                                    <Form.Control type="email" ref={emailRef} required className="Row input"/>
+                                <Form.Group id="email-signup">
+                                    <Form.Label className="Row-signup">Email</Form.Label>
+                                    <Form.Control type="email" ref={emailRef} required className="Row-signup input-signup"/>
                                 </Form.Group>
-                                <Form.Group id="password">
-                                    <Form.Label className="Row">Password</Form.Label>
-                                    <Form.Control type="password" ref={passwordRef} required className="Row input"/>
+                                <Form.Group id="password-signup">
+                                    <Form.Label className="Row-signup">Password</Form.Label>
+                                    <Form.Control type="password" ref={passwordRef} required className="Row-signup input-signup"/>
                                 </Form.Group>
-                                <Form.Group id="password-confirm">
-                                    <Form.Label className="Row">Password Confirmation</Form.Label>
-                                    <Form.Control type="password" ref={passwordConfirmRef} required className="Row input"/>
+                                <Form.Group id="password-confirm-signup">
+                                    <Form.Label className="Row-signup">Password Confirmation</Form.Label>
+                                    <Form.Control type="password" ref={passwordConfirmRef} required className="Row-signup input-signup"/>
                                 </Form.Group>
-                                <Button disabled={loading} type="submit" className="SubmitBtn">Sign Up</Button>
-                                <div className="Row">
-                                    Already have an account? <Link className="App-Link" to="/login">Log In</Link>
+                                <Button disabled={loading} type="submit" className="SubmitBtn-signup">Sign Up</Button>
+                                <div className="Row-signup">
+                                    Already have an account? <Link className="App-Link-signup" to="/login">Log In</Link>
                                 </div>
                             </Form>
                         </div>

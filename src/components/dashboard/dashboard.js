@@ -23,11 +23,11 @@ export default function Dashboard() {
 
     return (
         <div className="App">
-            <header className="App-header">
+            <header className="App-header-dashboard">
                 <Card>
                     <Card.Body>
                         <div className="ProfileWrapper">
-                            <h2 className="Title">Profile</h2>
+                            <h2 className="TitleProfile">Profile</h2>
                             {error && <Alert className="Alert" variant="danger">{error}</Alert>}
                             <strong>Email: </strong> {currentUser.email}
                             <button className="LogOut" onClick={handleLogout}>Log Out</button>

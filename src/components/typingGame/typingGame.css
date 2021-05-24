@@ -3,31 +3,31 @@
     font-family: monospace;
 }
 
-.App-logo {
-    margin-top: 40px;
+.App-logo-single {
+    margin-top: 25px;
     height: 325px;
     pointer-events: none;
 }
 
-.Keyboard-icon {
-    margin-top: 85px;
+.Keyboard-icon-single {
+    margin-top: 70px;
     position: absolute;
     height: 200px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
+    .App-logo-single {
         animation: App-logo-spin infinite 20s linear;
     }
 }
 
-.App-header {
+.App-header-typing {
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: normal;
     font-size: calc(10px + 2vmin);
     color: white;
 }
@@ -46,6 +46,7 @@
 }
 
 .Character {
+    margin-top: 0;
     white-space: pre;
     border-style: solid;
     border-color: #09d3ac;

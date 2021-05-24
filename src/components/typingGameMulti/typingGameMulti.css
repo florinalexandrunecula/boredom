@@ -3,40 +3,40 @@
     font-family: monospace;
 }
 
-.App-logo {
-    margin-top: 40px;
+.App-logo-multi {
+    margin-top: 25px;
     height: 325px;
     pointer-events: none;
 }
 
-.Keyboard-icon {
-    margin-top: 85px;
+.Keyboard-icon-multi {
+    margin-top: 70px;
     position: absolute;
     height: 200px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
+    .App-logo-multi {
+        animation: App-logo-multi-spin infinite 20s linear;
     }
 }
 
-.App-header {
+.App-header-multi {
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: normal;
     font-size: calc(10px + 2vmin);
     color: white;
 }
 
-.App-link {
+.App-link-multi {
     color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes App-logo-multi-spin {
     from {
         transform: rotate(0deg);
     }
@@ -45,33 +45,35 @@
     }
 }
 
-.Character {
+.Character-multi {
+    margin-top: 0;
+    margin-bottom: 0;
     white-space: pre;
     border-style: solid;
     border-color: #09d3ac;
 }
 
-.Character-current {
+.Character-current-multi {
     background-color: #09d3ac;
 }
 
-.Character-out {
+.Character-out-multi {
     color: silver;
 }
 
-.Container {
+.Container-multi {
     display: flex;
     justify-content: center;
 }
 
-.Row {
+.Row-multi{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
 }
 
-.Column {
+.Column-multi {
     display: flex;
     flex-direction: column;
     flex: 1;

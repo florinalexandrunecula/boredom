@@ -32,27 +32,27 @@ export default function Login() {
 
     return (
         <div className="App">
-            <header className="App-header">
+            <header className="App-header-login">
                 <Card>
                     <Card.Body>
-                        <div className="Wrapper">
-                            <div className="Container">
-                                <img src={signupIcon} className="Signup" alt="clock"/>
+                        <div className="Wrapper-login">
+                            <div className="Container-login">
+                                <img src={signupIcon} className="Signup-login" alt="clock"/>
                             </div>
-                            <h2 className="Title">Log In</h2>
-                            {error && <Alert className="Alert" variant="danger">{error}</Alert>}
+                            <h2 className="Title-login">Log In</h2>
+                            {error && <Alert className="Alert-login" variant="danger">{error}</Alert>}
                             <Form onSubmit={handleSubmit}>
-                                <Form.Group id="email">
-                                    <Form.Label className="Row">Email</Form.Label>
-                                    <Form.Control type="email" ref={emailRef} required className="Row input"/>
+                                <Form.Group id="email-login">
+                                    <Form.Label className="Row-login">Email</Form.Label>
+                                    <Form.Control type="email" ref={emailRef} required className="Row-login input-login"/>
                                 </Form.Group>
-                                <Form.Group id="password">
-                                    <Form.Label className="Row">Password</Form.Label>
-                                    <Form.Control type="password" ref={passwordRef} required className="Row input"/>
+                                <Form.Group id="password-login">
+                                    <Form.Label className="Row-login">Password</Form.Label>
+                                    <Form.Control type="password" ref={passwordRef} required className="Row-login input-login"/>
                                 </Form.Group>
-                                <Button disabled={loading} type="submit" className="SubmitBtn">Log In</Button>
-                                <div className="Row">
-                                    Don't have an account? <Link className="App-Link" to="/signup">Sign Up</Link>
+                                <Button disabled={loading} type="submit" className="SubmitBtn-login">Log In</Button>
+                                <div className="Row-login">
+                                    Don't have an account? <Link className="App-Link-login" to="/signup">Sign Up</Link>
                                 </div>
                             </Form>
                         </div>

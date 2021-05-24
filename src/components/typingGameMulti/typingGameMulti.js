@@ -142,44 +142,46 @@ const TypingGameMulti = () => {
 
     return (
         <div className="App">
-            <header className="App-header">
-                <div className="Container">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <img src={keyboard} className="Keyboard-icon" alt="keyboard"/>
+            <header className="App-header-multi">
+                <div className="Container-multi">
+                    <img src={logo} className="App-logo-multi" alt="logo" />
+                    <img src={keyboard} className="Keyboard-icon-multi" alt="keyboard"/>
                 </div>
                 <h2>{message}</h2>
-                <p className="Character">
-                    <span className="Character-out">
+                <p className="Character-multi">
+                    <span className="Character-out-multi">
                         {(leftPadding + outgoingChars).slice(-15)}
                     </span>
-                    <span className="Character-current">
+                    <span className="Character-current-multi">
                         {currentChar}
                     </span>
                     <span>
                         {incomingChars.substr(0, 15)}
                     </span>
                 </p>
-                <div className="PageWrapper">
-                    <div className="Row">
-                        <div className="Column">
-                            <h3>WPM(words per minute): {wpm}</h3>
+                <div className="PageWrapper-multi">
+                    <div className="Row-multi">
+                        <div className="Column-multi">
+                            <h4>WPM P1: {wpm}</h4>
                         </div>
-                        <div className="Column">
-                            <h3>Mistakes: {mistakes}</h3>
+                        <div className="Column-multi">
+                            <h4>Mistakes P1: {mistakes}</h4>
                         </div>
-                    </div>
-                    <h3>Accuracy: {accuracy}%</h3>
-                </div>
-                <div className="PageWrapper">
-                    <div className="Row">
-                        <div className="Column">
-                            <h3>WPM Opp(words per minute): {wpmAdv}</h3>
-                        </div>
-                        <div className="Column">
-                            <h3>Mistakes Opp: {mistakesAdv}</h3>
+                        <div className="Column-multi">
+                            <h4>Accuracy P1: {accuracy}%</h4>
                         </div>
                     </div>
-                    <h3>Accuracy Opp: {accuracyAdv}%</h3>
+                    <div className="Row-multi">
+                        <div className="Column-multi">
+                            <h4>WPM P2: {wpmAdv}</h4>
+                        </div>
+                        <div className="Column-multi">
+                            <h4>Mistakes P2: {mistakesAdv}</h4>
+                        </div>
+                        <div className="Column-multi">
+                            <h4>Accuracy P2: {accuracyAdv}%</h4>
+                        </div>
+                    </div>
                 </div>
             </header>
         </div>

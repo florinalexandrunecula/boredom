@@ -1,4 +1,4 @@
-.App-header {
+.App-header-home {
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
@@ -9,25 +9,25 @@
     color: white;
 }
 
-.Recycle {
-    margin-top: 40px;
+.Recycle-home {
+    margin-top: 30px;
     height: 325px;
     pointer-events: none;
 }
 
-.Clock {
-    margin-top: 120px;
+.Clock-home {
+    margin-top: 110px;
     position: absolute;
     height: 160px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .Recycle {
-        animation: Recycle-spin infinite 20s linear;
+    .Recycle-home {
+        animation: Recycle-home-spin infinite 20s linear;
     }
 }
 
-@keyframes Recycle-spin {
+@keyframes Recycle-home-spin {
     from {
         transform: rotate(0deg);
     }
@@ -38,4 +38,8 @@
 
 .Title {
     color: #09d3ac;
+}
+
+.HomeP {
+    margin-top: 0px;
 }

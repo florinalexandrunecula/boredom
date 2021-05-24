@@ -1,4 +1,4 @@
-.App-header {
+.App-header-login {
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
@@ -9,41 +9,26 @@
     color: white;
 }
 
-.Signup {
+.Signup-login {
     margin-top: 60px;
     margin-left: 25px;
     position: relative;
     height: 200px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .Recycle {
-        animation: Recycle-spin infinite 20s linear;
-    }
-}
-
-@keyframes Recycle-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.Title {
+.Title-login {
     color: #09d3ac;
     font-size: 50px;
 }
 
-.Wrapper {
+.Wrapper-login {
     border: solid #011511;
     border-radius: 20px;
     margin: 25px;
     width:35vw;
 }
 
-.Row {
+.Row-login {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -51,14 +36,14 @@
     width: 90%;
 }
 
-.input {
+.input-login {
     font-size: 25px;
     width: 90%;
     border-radius: 10px;
     margin: auto auto 10px;
 }
 
-.SubmitBtn {
+.SubmitBtn-login {
     font-size: 25px;
     width: 90%;
     border-radius: 10px;
@@ -66,7 +51,7 @@
     margin: auto auto 10px;
 }
 
-.Alert {
+.Alert-login {
     background-color: red;
     width: 90%;
     margin: auto auto 10px;
@@ -74,22 +59,22 @@
 }
 
 @media screen and (max-width: 960px) {
-    .Wrapper {
+    .Wrapper-login {
         margin: 25px;
         width:90vw;
     }
 
-    .Row {
+    .Row-login {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
 
-    .input {
+    .input-login {
         font-size: 30px;
     }
 
-    .SubmitBtn {
+    .SubmitBtn-login {
         font-size: 30px;
     }
 }
