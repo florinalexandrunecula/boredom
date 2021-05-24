@@ -6,7 +6,7 @@ export const MenuItems = [
     },
     {
         title: "Typing Game",
-        url: "/typing",
+        url: "/games",
         cName: "nav-links"
     },
     {

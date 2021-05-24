@@ -36,7 +36,7 @@ const TypingGameMulti = () => {
 
 
     function updateBackend(json) {
-        fetch('http://127.0.0.1:5000/post_score/', {
+        fetch('http://137.117.166.239:5000/post_score/', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -50,7 +50,7 @@ const TypingGameMulti = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             if (stopper === true) {
-                fetch('http://127.0.0.1:5000/check_game/?creator=' + currentUser.email)
+                fetch('http://137.117.166.239:5000/check_game/?creator=' + currentUser.email)
                     .then(response => response.json())
                     .then(data => setPlaying(data))
                 if (playing === true) {
@@ -66,7 +66,7 @@ const TypingGameMulti = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            fetch("http://127.0.0.1:5000/get_score/?creator=" + currentUser.email)
+            fetch("http://137.117.166.239:5000/get_score/?creator=" + currentUser.email)
                 .then(response => response.json())
                 .then(data => setJsonAdv({wpm: data.wpm, mistakes: data.mistakes, accuracy: data.accuracy}))
             setMistakesAdv(jsonAdv["mistakes"])
