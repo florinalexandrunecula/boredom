@@ -6,7 +6,7 @@ import useKeyPress from "../../hooks/useKeyPress"
 import React, { useState, useEffect } from 'react'
 import { currentTime } from "../../utils/time"
 import { useAuth } from "../../context/authContext"
-import ProgressBar from "../../utils/progressBar";
+import ProgressBar from "../../utils/progressBar"
 
 const initialWords = generate()
 
@@ -27,7 +27,7 @@ const TypingGameMulti = () => {
     const [characters, setCharacters] = useState(0)
     const [accuracy, setAccuracy] = useState(100)
     const [playing, setPlaying] = useState(false)
-    const [maxCharacters, setMaxCharacters] = useState(150)
+    const [maxCharacters, setMaxCharacters] = useState(15)
     const [message, setMessage] = useState("Waiting for other player")
     const [stopper, setStopper] = useState(true)
     const [wpmAdv, setWpmAdv] = useState(0)
@@ -36,6 +36,9 @@ const TypingGameMulti = () => {
     const [jsonAdv, setJsonAdv] = useState({'mistakes': -1, 'wpm': -1, 'accuracy': -1})
     const [percentage, setPercentage] = useState(50)
     const [color, setColor] = useState("green")
+    const [titleStyle, setTitleStyle] = useState({color: "white"})
+    const [winner, setWinner] = useState("None")
+    const [leaving, setLeaving] = useState(false)
 
 
     function updateBackend(json) {
@@ -57,7 +60,6 @@ const TypingGameMulti = () => {
                     .then(response => response.json())
                     .then(data => setPlaying(data))
                 if (playing === true) {
-                    console.log("apelat")
                     setMessage("Type as fast as you can!")
                     setStopper(false)
                 }
@@ -69,28 +71,49 @@ const TypingGameMulti = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            fetch("http://137.117.166.239:5000/get_score/?creator=" + currentUser.email)
-                .then(response => response.json())
-                .then(data => setJsonAdv({wpm: data.wpm, mistakes: data.mistakes, accuracy: data.accuracy}))
-            setMistakesAdv(jsonAdv["mistakes"])
-            setWpmAdv(jsonAdv["wpm"])
-            setAccuracyAdv(jsonAdv["accuracy"])
-            let report = wpm / jsonAdv["wpm"]
-            let percentage = report * 50
-            if (percentage > 100) {
-                setPercentage(100)
-                setColor("Green")
-            } else {
-                setPercentage(percentage)
-                if (percentage < 50) {
-                    setColor("Red")
-                } else {
+            if (playing === true || leaving === false) {
+                fetch("http://137.117.166.239:5000/get_score/?creator=" + currentUser.email)
+                    .then(response => response.json())
+                    .then(data => setJsonAdv({wpm: data.wpm, mistakes: data.mistakes, accuracy: data.accuracy}))
+                setMistakesAdv(jsonAdv["mistakes"])
+                setWpmAdv(jsonAdv["wpm"])
+                setAccuracyAdv(jsonAdv["accuracy"])
+                let report = wpm / jsonAdv["wpm"]
+                let percentage = report * 50
+                if (percentage > 100) {
+                    setPercentage(100)
                     setColor("Green")
+                    setTitleStyle({color: "green"})
+                } else {
+                    setPercentage(percentage)
+                    if (percentage < 50) {
+                        setColor("Red")
+                        setTitleStyle({color: "red"})
+                    } else {
+                        setColor("Green")
+                        setTitleStyle({color: "green"})
+                    }
                 }
             }
         }, 500);
         return () => clearInterval(interval);
-    }, [currentUser, jsonAdv]);
+    }, [currentUser, jsonAdv, wpm, percentage, playing]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (stopper === false && playing === false && leaving === false) {
+                fetch('http://137.117.166.239:5000/check_winner/?creator=' + currentUser.email + '&finalScore=' + wpm.toString())
+                    .then(response => response.json())
+                    .then(data => setWinner(data.winner))
+                if (winner !== "None") {
+                    setMessage("The winner is: " + winner + "! You can close the page now!")
+                    setLeaving(true)
+                }
+            }
+
+        }, 500);
+        return () => clearInterval(interval);
+    }, [currentUser, playing, stopper, leaving, winner, wpm]);
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useKeyPress(key => {
@@ -148,7 +171,7 @@ const TypingGameMulti = () => {
 
             if (maxCharacters === 0) {
                 setPlaying(false)
-                setMessage("Game over! Winner is: ")
+                setMessage("Game over! Waiting for the other player...")
             }
 
             updateBackend(json)
@@ -163,7 +186,7 @@ const TypingGameMulti = () => {
                     <img src={logo} className="App-logo-multi" alt="logo" />
                     <img src={keyboard} className="Keyboard-icon-multi" alt="keyboard"/>
                 </div>
-                <h2>{message}</h2>
+                <h2 style={titleStyle}>{message}</h2>
                 <ProgressBar completed={percentage} bgcolor={color}/>
                 <p className="Character-multi">
                     <span className="Character-out-multi">
