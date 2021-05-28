@@ -27,7 +27,7 @@ const TypingGameMulti = () => {
     const [characters, setCharacters] = useState(0)
     const [accuracy, setAccuracy] = useState(100)
     const [playing, setPlaying] = useState(false)
-    const [maxCharacters, setMaxCharacters] = useState(15)
+    const [maxCharacters, setMaxCharacters] = useState(300)
     const [message, setMessage] = useState("Waiting for other player")
     const [stopper, setStopper] = useState(true)
     const [wpmAdv, setWpmAdv] = useState(0)
@@ -187,6 +187,7 @@ const TypingGameMulti = () => {
                     <img src={keyboard} className="Keyboard-icon-multi" alt="keyboard"/>
                 </div>
                 <h2 style={titleStyle}>{message}</h2>
+                <p>{maxCharacters} remaining</p>
                 <ProgressBar completed={percentage} bgcolor={color}/>
                 <p className="Character-multi">
                     <span className="Character-out-multi">
