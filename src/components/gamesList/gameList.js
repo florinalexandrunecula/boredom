@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {useAuth} from "../../context/authContext"
 import { useHistory } from "react-router-dom"
 import './gameList.css'
+import TypingGame from '../typingGame/typingGame'
 
 
 const GameJoin = () => {
@@ -38,38 +39,42 @@ const GameJoin = () => {
         history.push("/typingMulti")
     }
 
-    return(
-        <div className="App">
-            <header className="App-header-list">
-                <h3 className="Title">Available Games</h3>
-                <h4 className="SmallerTitle">
-                    Ready to join a game? <button className="Refresh" href="#" onClick={getGames}>Refresh list</button>
-                </h4>
-                <h4 className="SmallerTitle">
-                    No games available? <button className="Refresh" href="#" onClick={createGame}>Create game</button>
-                </h4>
-                <table>
-                    <tbody>
-                        <th>
-                            <td className="Creator">Game Creator</td>
-                            <td>Join</td>
-                        </th>
-                        {gameList.map((game, index) => {
-                            const { id, gameCreator } = game
-                            return (
-                                <tr key={id}>
-                                    <td className="Creator">{gameCreator}</td>
-                                    <td>
-                                        <button onClick={() => buttonClicked(gameCreator)}>Join Game</button>
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
-            </header>
-        </div>
-    )
+    if (currentUser) {
+        return(
+            <div className="App">
+                <header className="App-header-list">
+                    <h3 className="Title">Available Games</h3>
+                    <h4 className="SmallerTitle">
+                        Ready to join a game? <button className="Refresh" href="#" onClick={getGames}>Refresh list</button>
+                    </h4>
+                    <h4 className="SmallerTitle">
+                        No games available? <button className="Refresh" href="#" onClick={createGame}>Create game</button>
+                    </h4>
+                    <table>
+                        <tbody>
+                            <th>
+                                <td className="Creator">Game Creator</td>
+                                <td>Join</td>
+                            </th>
+                            {gameList.map((game, index) => {
+                                const { id, gameCreator } = game
+                                return (
+                                    <tr key={id}>
+                                        <td className="Creator">{gameCreator}</td>
+                                        <td>
+                                            <button onClick={() => buttonClicked(gameCreator)}>Join Game</button>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </header>
+            </div>
+        )
+    } else {
+        return <TypingGame />
+    }
 }
 
 export default GameJoin

@@ -3,10 +3,22 @@ import keyboard from '../../keyboard.svg'
 import './typingGame.css'
 import { generate } from '../../utils/words'
 import useKeyPress from "../../hooks/useKeyPress"
-import React, { useState } from 'react'
+import React, { Component, useState } from 'react'
 import { currentTime } from "../../utils/time"
+import ProgressBar from "react-bootstrap/ProgressBar"
+
 
 const initialWords = generate()
+
+class Example extends Component {
+    render() {
+        return (
+            <div style={{ width: 400 }}>
+                <ProgressBar animated now={45} />
+            </div>
+        )
+    }
+}
 
 const TypingGame = () => {
     document.title = "Typing Game"
@@ -80,6 +92,7 @@ const TypingGame = () => {
                     <img src={keyboard} className="Keyboard-icon-single" alt="keyboard"/>
                 </div>
                 <h3>Type as fast as you can!</h3>
+                <Example />
                 <p className="Character">
                     <span className="Character-out">
                         {(leftPadding + outgoingChars).slice(-15)}
