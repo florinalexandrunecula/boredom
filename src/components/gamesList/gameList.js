@@ -73,7 +73,11 @@ const GameJoin = () => {
             </div>
         )
     } else {
-        return <TypingGame />
+        return (
+            <header className="App-header-list">
+                <TypingGame />
+            </header>
+        )
     }
 }
 

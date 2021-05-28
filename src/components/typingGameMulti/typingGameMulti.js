@@ -6,6 +6,7 @@ import useKeyPress from "../../hooks/useKeyPress"
 import React, { useState, useEffect } from 'react'
 import { currentTime } from "../../utils/time"
 import { useAuth } from "../../context/authContext"
+import ProgressBar from "../../utils/progressBar";
 
 const initialWords = generate()
 
@@ -33,6 +34,8 @@ const TypingGameMulti = () => {
     const [mistakesAdv, setMistakesAdv] = useState(0)
     const [accuracyAdv, setAccuracyAdv] = useState(100)
     const [jsonAdv, setJsonAdv] = useState({'mistakes': -1, 'wpm': -1, 'accuracy': -1})
+    const [percentage, setPercentage] = useState(50)
+    const [color, setColor] = useState("green")
 
 
     function updateBackend(json) {
@@ -72,6 +75,19 @@ const TypingGameMulti = () => {
             setMistakesAdv(jsonAdv["mistakes"])
             setWpmAdv(jsonAdv["wpm"])
             setAccuracyAdv(jsonAdv["accuracy"])
+            let report = wpm / jsonAdv["wpm"]
+            let percentage = report * 50
+            if (percentage > 100) {
+                setPercentage(100)
+                setColor("Green")
+            } else {
+                setPercentage(percentage)
+                if (percentage < 50) {
+                    setColor("Red")
+                } else {
+                    setColor("Green")
+                }
+            }
         }, 500);
         return () => clearInterval(interval);
     }, [currentUser, jsonAdv]);
@@ -148,6 +164,7 @@ const TypingGameMulti = () => {
                     <img src={keyboard} className="Keyboard-icon-multi" alt="keyboard"/>
                 </div>
                 <h2>{message}</h2>
+                <ProgressBar completed={percentage} bgcolor={color}/>
                 <p className="Character-multi">
                     <span className="Character-out-multi">
                         {(leftPadding + outgoingChars).slice(-15)}
@@ -169,17 +186,6 @@ const TypingGameMulti = () => {
                         </div>
                         <div className="Column-multi">
                             <h4>Accuracy P1: {accuracy}%</h4>
-                        </div>
-                    </div>
-                    <div className="Row-multi">
-                        <div className="Column-multi">
-                            <h4>WPM P2: {wpmAdv}</h4>
-                        </div>
-                        <div className="Column-multi">
-                            <h4>Mistakes P2: {mistakesAdv}</h4>
-                        </div>
-                        <div className="Column-multi">
-                            <h4>Accuracy P2: {accuracyAdv}%</h4>
                         </div>
                     </div>
                 </div>
