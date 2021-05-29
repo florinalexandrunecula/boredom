@@ -7,12 +7,12 @@ export const MenuItems = [
     {
         title: "Typing Game",
         url: "/games",
-        cName: "nav-links"
+        cName: "nav-links-desktop"
     },
     {
         title: "Balloon Pop",
         url: "/balloon",
-        cName: "nav-links"
+        cName: "nav-links-mobile-game"
     },
     {
         title: "My Profile",

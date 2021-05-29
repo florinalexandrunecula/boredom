@@ -43,6 +43,22 @@
     transition: all 0.2s ease-out;
 }
 
+.nav-links-mobile-game {
+    display: none;
+}
+
+.nav-links-desktop {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.nav-links-desktop:hover {
+    background-color: #09d3ac;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
 .nav-links-hidden {
     background-color: #057f67;
     color: white;
@@ -104,11 +120,31 @@
         font-size: 1.5rem;
     }
 
+    .nav-links-mobile-game {
+        color: white;
+        text-decoration: none;
+        text-align: left;
+        padding: 2rem;
+        margin: 0 auto;
+        width: 92vw;
+        display: table;
+        font-size: 1.5rem;
+    }
+
+    .nav-links-desktop {
+        display: none;
+    }
+
     .nav-links-hidden {
         display: none;
     }
 
     .nav-links:hover {
+        background-color: #09d3ac;
+        border-radius: 0;
+    }
+
+    .nav-links-mobile-game:hover {
         background-color: #09d3ac;
         border-radius: 0;
     }

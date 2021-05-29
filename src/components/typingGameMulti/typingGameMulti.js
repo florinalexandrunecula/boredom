@@ -97,7 +97,7 @@ const TypingGameMulti = () => {
             }
         }, 500);
         return () => clearInterval(interval);
-    }, [currentUser, jsonAdv, wpm, percentage, playing]);
+    }, [currentUser, jsonAdv, wpm, percentage, playing, leaving]);
 
     useEffect(() => {
         const interval = setInterval(() => {
