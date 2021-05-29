@@ -1,0 +1,24 @@
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: normal;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.GameArea {
+    margin-top: 25px;
+    height: 80vh;
+    width: 99vw;
+    border-style: solid;
+    border-color: #09d3ac;
+}
+
+.Reset {
+    margin-top: 15px;
+    height: 50px;
+    width: 50px;
+}

@@ -11,7 +11,7 @@ export const MenuItems = [
     },
     {
         title: "Balloon Pop",
-        url: "/balloon",
+        url: "/gamesMobile",
         cName: "nav-links-mobile-game"
     },
     {

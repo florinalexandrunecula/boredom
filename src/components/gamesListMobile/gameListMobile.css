@@ -1,0 +1,37 @@
+.App-header-list {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Creator {
+  padding-right: 50px;
+}
+
+.Refresh {
+  font-family: monospace;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Refresh:hover {
+  cursor: pointer;
+  color: #09d3ac;
+}
+
+.Title {
+  margin-top: 40px;
+}
+
+.SmallerTitle {
+  margin-top: 0px;
+}

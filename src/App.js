@@ -11,6 +11,8 @@ import Dashboard from "./components/dashboard/dashboard"
 import PrivateRoute from "./utils/privateRoute"
 import GameJoin from "./components/gamesList/gameList"
 import TypingGameMulti from "./components/typingGameMulti/typingGameMulti"
+import GameJoinMobile from './components/gamesListMobile/gameListMobile'
+import BalloonPopMulti from './components/balloonPopMulti/balloonPopMulti'
 
 function App() {
   return (
@@ -22,9 +24,11 @@ function App() {
                   <Route path="/typing" exact component={TypingGame} />
                   <Route path="/typingMulti" exact component={TypingGameMulti} />
                   <Route path="/balloon" exact component={BalloonPop} />
+                  <Route path="/balloonMulti" exact component={BalloonPopMulti} />
                   <Route path="/signup" exact component={Signup} />
                   <Route path="/login" exact component={Login} />
                   <Route path="/games" exact component={GameJoin} />
+                  <Route path="/gamesMobile" exact component={GameJoinMobile} />
                   <PrivateRoute path="/profile" exact component={Dashboard} />
               </Switch>
           </Router>

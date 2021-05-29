@@ -30,9 +30,6 @@ const TypingGameMulti = () => {
     const [maxCharacters, setMaxCharacters] = useState(300)
     const [message, setMessage] = useState("Waiting for other player")
     const [stopper, setStopper] = useState(true)
-    const [wpmAdv, setWpmAdv] = useState(0)
-    const [mistakesAdv, setMistakesAdv] = useState(0)
-    const [accuracyAdv, setAccuracyAdv] = useState(100)
     const [jsonAdv, setJsonAdv] = useState({'mistakes': -1, 'wpm': -1, 'accuracy': -1})
     const [percentage, setPercentage] = useState(50)
     const [color, setColor] = useState("green")
@@ -75,9 +72,6 @@ const TypingGameMulti = () => {
                 fetch("http://137.117.166.239:5000/get_score/?creator=" + currentUser.email)
                     .then(response => response.json())
                     .then(data => setJsonAdv({wpm: data.wpm, mistakes: data.mistakes, accuracy: data.accuracy}))
-                setMistakesAdv(jsonAdv["mistakes"])
-                setWpmAdv(jsonAdv["wpm"])
-                setAccuracyAdv(jsonAdv["accuracy"])
                 let report = wpm / jsonAdv["wpm"]
                 let percentage = report * 50
                 if (percentage > 100) {
@@ -169,7 +163,7 @@ const TypingGameMulti = () => {
                 setAccuracy(tempAcc.toFixed(2))
             }
 
-            if (maxCharacters === 0) {
+            if (maxCharacters === 1) {
                 setPlaying(false)
                 setMessage("Game over! Waiting for the other player...")
             }
