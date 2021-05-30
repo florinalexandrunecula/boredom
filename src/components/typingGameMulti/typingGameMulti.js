@@ -27,7 +27,7 @@ const TypingGameMulti = () => {
     const [characters, setCharacters] = useState(0)
     const [accuracy, setAccuracy] = useState(100)
     const [playing, setPlaying] = useState(false)
-    const [maxCharacters, setMaxCharacters] = useState(300)
+    const [maxCharacters, setMaxCharacters] = useState(15)
     const [message, setMessage] = useState("Waiting for other player")
     const [stopper, setStopper] = useState(true)
     const [jsonAdv, setJsonAdv] = useState({'mistakes': -1, 'wpm': -1, 'accuracy': -1})
@@ -100,6 +100,27 @@ const TypingGameMulti = () => {
                     .then(response => response.json())
                     .then(data => setWinner(data.winner))
                 if (winner !== "None") {
+                    if (winner === currentUser.email) {
+                        fetch('http://137.117.166.239:5000//update_user_typing/', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({"email": currentUser.email, "won": 1, "lost": 0, "wpm": wpm, "mistakes": mistakes, "accuracy": accuracy})
+                        }
+                        )
+                    } else {
+                        fetch('http://137.117.166.239:5000//update_user_typing/', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({"email": currentUser.email, "won": 0, "lost": 1, "wpm": wpm, "mistakes": mistakes, "accuracy": accuracy})
+                        }
+                        )
+                    }
                     setMessage("The winner is: " + winner + "! You can close the page now!")
                     setLeaving(true)
                 }
@@ -107,7 +128,7 @@ const TypingGameMulti = () => {
 
         }, 500);
         return () => clearInterval(interval);
-    }, [currentUser, playing, stopper, leaving, winner, wpm]);
+    }, [currentUser, playing, stopper, leaving, winner, wpm, mistakes, accuracy]);
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useKeyPress(key => {

@@ -10,6 +10,7 @@ export default function Signup() {
 
     const emailRef = useRef()
     const passwordRef = useRef()
+    const nameRef = useRef()
     const passwordConfirmRef = useRef()
     const { signup } = useAuth()
     const [error, setError] = useState('')
@@ -26,6 +27,15 @@ export default function Signup() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
+            fetch('http://137.117.166.239:5000/create_user/', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({"name": nameRef.current.value, "email": emailRef.current.value})
+            }
+            )
             history.push("/login")
         } catch {
             setError("Failed to create an account")
@@ -46,6 +56,10 @@ export default function Signup() {
                             <h2 className="Title-signup">Sign Up</h2>
                             {error && <Alert className="Alert-signup" variant="danger">{error}</Alert>}
                             <Form onSubmit={handleSubmit}>
+                                <Form.Group id="name-signup">
+                                    <Form.Label className="Row-signup">Name</Form.Label>
+                                    <Form.Control type="name" ref={nameRef} required className="Row-signup input-signup"/>
+                                </Form.Group>
                                 <Form.Group id="email-signup">
                                     <Form.Label className="Row-signup">Email</Form.Label>
                                     <Form.Control type="email" ref={emailRef} required className="Row-signup input-signup"/>

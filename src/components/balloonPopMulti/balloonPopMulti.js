@@ -59,6 +59,27 @@ const BalloonPopMulti = () => {
                         .then(response => response.json())
                         .then(data => setWinner(data.winner))
                     if (winner !== "None") {
+                        if (winner === currentUser.email) {
+                            fetch('http://137.117.166.239:5000//update_user_balloon/', {
+                                method: 'POST',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({"email": currentUser.email, "won": 1, "lost": 0, "accuracy": accuracy, "duration": durationInSeconds})
+                            }
+                            )
+                        } else {
+                            fetch('http://137.117.166.239:5000//update_user_balloon/', {
+                                method: 'POST',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({"email": currentUser.email, "won": 0, "lost": 1, "accuracy": accuracy, "duration": durationInSeconds})
+                            }
+                            )
+                        }
                         setMessage("The winner is: " + winner + "! You can close the page now!")
                         setLeaving(true)
                     }
@@ -66,7 +87,7 @@ const BalloonPopMulti = () => {
     
             }, 500);
             return () => clearInterval(interval);
-        }, [currentUser, playing, stopper, leaving, winner, durationInSeconds]);
+        }, [currentUser, playing, stopper, leaving, winner, durationInSeconds, accuracy]);
 
         useLayoutEffect(() => {
             if (targetRef.current) {
