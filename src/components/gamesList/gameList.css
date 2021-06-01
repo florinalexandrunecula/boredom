@@ -35,3 +35,40 @@
 .SmallerTitle {
   margin-top: 0px;
 }
+
+.GameTableTyping {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr {
+  background-color: #282c34;
+}
+
+tr:hover {
+  transition: 0.5s;
+  background-color: #696b71;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.JoinButton {
+  font-family: monospace;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+.JoinButton:hover {
+  transition: 0.5s;
+  color: #09d3ac;
+}

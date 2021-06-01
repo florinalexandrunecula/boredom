@@ -15,6 +15,11 @@ export const MenuItems = [
         cName: "nav-links-mobile-game"
     },
     {
+        title: "Tic-Tac-Toe",
+        url: "/ticTacToe",
+        cName: "nav-links"
+    },
+    {
         title: "My Profile",
         url: "/profile",
         cName: "nav-links"

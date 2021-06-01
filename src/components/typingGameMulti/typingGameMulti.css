@@ -23,7 +23,7 @@
 
 .App-header-multi {
     background-color: #282c34;
-    min-height: 100vh;
+    min-height: 92.25vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -77,4 +77,8 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+.TypingMultiTitle {
+    margin-bottom: 0px;
 }

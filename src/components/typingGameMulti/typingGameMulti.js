@@ -201,7 +201,7 @@ const TypingGameMulti = () => {
                     <img src={logo} className="App-logo-multi" alt="logo" />
                     <img src={keyboard} className="Keyboard-icon-multi" alt="keyboard"/>
                 </div>
-                <h2 style={titleStyle}>{message}</h2>
+                <h2 className="TypingMultiTitle" style={titleStyle}>{message}</h2>
                 <p>{maxCharacters} remaining</p>
                 <ProgressBar completed={percentage} bgcolor={color}/>
                 <p className="Character-multi">
@@ -218,13 +218,13 @@ const TypingGameMulti = () => {
                 <div className="PageWrapper-multi">
                     <div className="Row-multi">
                         <div className="Column-multi">
-                            <h4>WPM P1: {wpm}</h4>
+                            <h4>WPM: {wpm}</h4>
                         </div>
                         <div className="Column-multi">
-                            <h4>Mistakes P1: {mistakes}</h4>
+                            <h4>Mistakes: {mistakes}</h4>
                         </div>
                         <div className="Column-multi">
-                            <h4>Accuracy P1: {accuracy}%</h4>
+                            <h4>Accuracy: {accuracy}%</h4>
                         </div>
                     </div>
                 </div>

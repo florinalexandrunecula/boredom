@@ -49,19 +49,18 @@ const GameJoinMobile = () => {
                     <h4 className="SmallerTitle">
                         No games available? <button className="Refresh" href="#" onClick={createGame}>Create game</button>
                     </h4>
-                    <table>
+                    <table className="GameTableTyping">
                         <tbody>
-                            <th>
-                                <td className="Creator">Game Creator</td>
-                                <td>Join</td>
-                            </th>
+                            <tr>
+                                <th className="Creator">Game Creator</th>
+                            </tr>
                             {gameList.map((game, index) => {
                                 const { id, gameCreator } = game
                                 return (
                                     <tr key={id}>
                                         <td className="Creator">{gameCreator}</td>
                                         <td>
-                                            <button onClick={() => buttonClicked(gameCreator)}>Join Game</button>
+                                            <button className="JoinButton" onClick={() => buttonClicked(gameCreator)}>Join Game</button>
                                         </td>
                                     </tr>
                                 )
