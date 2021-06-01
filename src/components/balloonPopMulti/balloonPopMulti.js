@@ -6,7 +6,7 @@ import { currentTime } from "../../utils/time"
 import { useAuth } from "../../context/authContext"
 
 const BalloonPopMulti = () => {
-    document.title = "Balloon Pop"
+    document.title = "Balloon Pop Multi"
 
     const GameArea = () => {
         const { currentUser } = useAuth()

@@ -11,7 +11,7 @@ import ProgressBar from "../../utils/progressBar"
 const initialWords = generate()
 
 const TypingGameMulti = () => {
-    document.title = "Typing Game"
+    document.title = "Typing Game Multi"
     const { currentUser } = useAuth()
 
     const [leftPadding, setLeftPadding] = useState(

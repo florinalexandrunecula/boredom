@@ -1,0 +1,28 @@
+.App-header-tic {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: normal;
+    color: white;
+}
+
+.Game {
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+}
+
+ul {
+    padding-left: 30px;
+}
+
+.Game-info {
+    margin-left: 20px;
+}
+
+.Status {
+    margin-bottom: 10px;
+    color: black;
+}

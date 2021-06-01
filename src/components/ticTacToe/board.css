@@ -1,0 +1,22 @@
+.Board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.Row-Tic{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.Column-Tic {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.PageWrapper-Tic {
+    min-width: 240px;
+}
