@@ -23,15 +23,5 @@ export const MenuItems = [
         title: "My Profile",
         url: "/profile",
         cName: "nav-links"
-    },
-    {
-        title: "Sign Up",
-        url: "/signup",
-        cName: "nav-links-hidden"
-    },
-    {
-        title: "Sign up",
-        url: "/signup",
-        cName: "nav-links-mobile"
     }
 ]

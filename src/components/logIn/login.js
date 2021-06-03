@@ -22,7 +22,7 @@ export default function Login() {
             setError('')
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
-            history.push("/")
+            history.push("/profile")
         } catch {
             setError("Failed to sign in")
         }
@@ -52,7 +52,7 @@ export default function Login() {
                                 </Form.Group>
                                 <Button disabled={loading} type="submit" className="SubmitBtn-login">Log In</Button>
                                 <div className="Row-login">
-                                    Don't have an account? <Link className="App-Link-login" to="/signup">Sign Up</Link>
+                                    Don't have an account? <Link className="App-Link-signup" to="/signup">Sign Up</Link>
                                 </div>
                             </Form>
                         </div>
