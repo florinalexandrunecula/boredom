@@ -55,7 +55,7 @@ const BalloonPopMulti = () => {
     
         useEffect(() => {
             const interval = setInterval(() => {
-                if (stopper === false && playing === false && leaving === false) {
+                if (stopper === false && playing === false) {
                     fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
                         .then(response => response.json())
                         .then(data => setWinner(data.winner))
