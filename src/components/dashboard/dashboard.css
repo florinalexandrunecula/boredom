@@ -32,3 +32,16 @@
     margin-top: 0px;
     color: #09d3ac;
 }
+
+.Row-stats{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.Column-stats {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}

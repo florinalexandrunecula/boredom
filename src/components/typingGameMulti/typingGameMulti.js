@@ -27,7 +27,7 @@ const TypingGameMulti = () => {
     const [characters, setCharacters] = useState(0)
     const [accuracy, setAccuracy] = useState(100)
     const [playing, setPlaying] = useState(false)
-    const [maxCharacters, setMaxCharacters] = useState(250)
+    const [maxCharacters, setMaxCharacters] = useState(10)
     const [message, setMessage] = useState("Waiting for other player")
     const [stopper, setStopper] = useState(true)
     const [jsonAdv, setJsonAdv] = useState({'mistakes': -1, 'wpm': -1, 'accuracy': -1})
@@ -35,6 +35,7 @@ const TypingGameMulti = () => {
     const [color, setColor] = useState("green")
     const [titleStyle, setTitleStyle] = useState({color: "white"})
     const [winner, setWinner] = useState("None")
+    const [score, setScore] = useState(-1)
     const [leaving, setLeaving] = useState(false)
 
 
@@ -99,6 +100,9 @@ const TypingGameMulti = () => {
                 fetch('http://137.117.166.239:5000/check_winner/?creator=' + currentUser.email + '&finalScore=' + wpm.toString())
                     .then(response => response.json())
                     .then(data => setWinner(data.winner))
+                fetch('http://137.117.166.239:5000/check_winner/?creator=' + currentUser.email + '&finalScore=' + wpm.toString())
+                    .then(response => response.json())
+                    .then(data => setScore(data.score))
                 if (winner !== "None") {
                     if (winner === currentUser.email) {
                         fetch('http://137.117.166.239:5000//update_user_typing/', {
@@ -121,14 +125,14 @@ const TypingGameMulti = () => {
                         }
                         )
                     }
-                    setMessage("The winner is: " + winner + "! You can close the page now!")
+                    setMessage("The winner is: " + winner + " with a score of: " + score +"! You can close the page now!")
                     setLeaving(true)
                 }
             }
 
         }, 500);
         return () => clearInterval(interval);
-    }, [currentUser, playing, stopper, leaving, winner, wpm, mistakes, accuracy]);
+    }, [currentUser, playing, stopper, leaving, winner, wpm, mistakes, accuracy, score]);
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useKeyPress(key => {

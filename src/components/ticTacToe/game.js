@@ -49,7 +49,7 @@ export default class Game extends Component {
             const desc = move ? "Go to #" + move : "Restart the Game"
             if (desc === "Restart the Game") {
                 return (
-                    <button onClick={() => {this.jumpTo(move)}}>
+                    <button className="ResetBTN" onClick={() => {this.jumpTo(move)}}>
                         {desc}
                     </button>
                 )
@@ -74,12 +74,12 @@ export default class Game extends Component {
                     </div>
                 </div>
                 <div className="Game-info">
-                        <div>
-                            {status}
-                        </div>
-                        <p>
-                            {moves}
-                        </p>
+                    <h2>
+                        {status}
+                    </h2>
+                    <p>
+                        {moves}
+                    </p>
                 </div>
             </header>
         )
