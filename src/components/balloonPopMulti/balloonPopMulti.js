@@ -25,6 +25,7 @@ const BalloonPopMulti = () => {
         const [winner, setWinner] = useState("None")
         const [score, setScore] = useState(0)
         const [email, setEmail] = useState("None")
+        const [response, setResponse] = useState({ resp: {}})
         const [message, setMessage] = useState("Waiting for other player")
         let propagate = true
         let dotPosition = {x: 0, y: 0}
@@ -58,14 +59,13 @@ const BalloonPopMulti = () => {
             const interval = setInterval(() => {
                 if (stopper === false && playing === false && leaving === false) {
                     fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
-                        .then(response => response.json())
-                        .then(data => setWinner(data.winner))
-                    fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
-                        .then(response => response.json())
-                        .then(data => setScore(data.score))
-                    fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
-                        .then(response => response.json())
-                        .then(data => setEmail(data.email))
+                        .then(data => { return data.json() })
+                        .then(datum => {
+                            setResponse({resp: datum})
+                        });
+                    setEmail(response["resp"]["email"])
+                    setWinner(response["resp"]["winner"])
+                    setScore(response["resp"]["score"])
                     if (winner !== "None") {
                         if (email === currentUser.email) {
                             fetch('http://137.117.166.239:5000//update_user_balloon/', {
