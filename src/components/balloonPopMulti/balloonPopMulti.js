@@ -62,7 +62,7 @@ const BalloonPopMulti = () => {
                     fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
                         .then(response => response.json())
                         .then(data => setScore(data.score))
-                    if (winner !== "None") {
+                    if (winner !== "None" && leaving === false) {
                         if (winner === currentUser.email) {
                             fetch('http://137.117.166.239:5000//update_user_balloon/', {
                                 method: 'POST',
