@@ -26,6 +26,7 @@ const BalloonPopMulti = () => {
         const [score, setScore] = useState(0)
         const [email, setEmail] = useState("None")
         const [message, setMessage] = useState("Waiting for other player")
+        const [response, setResponse] = useState({ result: {} })
         let propagate = true
         let dotPosition = {x: 0, y: 0}
         let timeout = false
@@ -56,17 +57,16 @@ const BalloonPopMulti = () => {
     
         useEffect(() => {
             const interval = setInterval(() => {
-                if (stopper === false && playing === false) {
+                if (stopper === false && playing === false && leaving === false) {
                     fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
-                        .then(response => response.json())
-                        .then(data => setWinner(data.winner))
-                    fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
-                        .then(response => response.json())
-                        .then(data => setScore(data.score))
-                    fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
-                        .then(response => response.json())
-                        .then(data => setEmail(data.email))
-                    if (winner !== "None" && leaving === false) {
+                        .then(data => { return data.json() })
+                        .then(datum => {
+                            setResponse({result: datum})
+                            setWinner(response[response]["winner"])
+                            setScore(response[response]["score"])
+                            setEmail(response[response]["email"])
+                        });
+                    if (winner !== "None") {
                         if (email === currentUser.email) {
                             fetch('http://137.117.166.239:5000//update_user_balloon/', {
                                 method: 'POST',
