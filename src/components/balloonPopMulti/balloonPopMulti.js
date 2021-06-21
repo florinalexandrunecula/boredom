@@ -24,6 +24,7 @@ const BalloonPopMulti = () => {
         const [leaving, setLeaving] = useState(false)
         const [winner, setWinner] = useState("None")
         const [score, setScore] = useState(0)
+        const [email, setEmail] = useState("None")
         const [message, setMessage] = useState("Waiting for other player")
         let propagate = true
         let dotPosition = {x: 0, y: 0}
@@ -62,8 +63,11 @@ const BalloonPopMulti = () => {
                     fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
                         .then(response => response.json())
                         .then(data => setScore(data.score))
+                    fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
+                        .then(response => response.json())
+                        .then(data => setEmail(data.email))
                     if (winner !== "None") {
-                        if (winner === currentUser.email) {
+                        if (email === currentUser.email) {
                             fetch('http://137.117.166.239:5000//update_user_balloon/', {
                                 method: 'POST',
                                 headers: {
@@ -91,7 +95,7 @@ const BalloonPopMulti = () => {
     
             }, 500);
             return () => clearInterval(interval);
-        }, [currentUser, playing, stopper, leaving, winner, durationInSeconds, accuracy]);
+        }, [currentUser, playing, stopper, leaving, winner, durationInSeconds, accuracy, email]);
 
         useLayoutEffect(() => {
             if (targetRef.current) {
