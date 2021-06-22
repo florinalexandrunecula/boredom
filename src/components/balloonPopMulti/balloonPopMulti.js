@@ -55,18 +55,13 @@ const BalloonPopMulti = () => {
     
         useEffect(() => {
             const interval = setInterval(() => {
-                if (stopper === false && playing === false) {
+                if (stopper === false && playing === false && leaving === false) {
                     fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
                         .then(response => response.json())
                         .then(data => setWinner(data.winner))
                     fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
                         .then(response => response.json())
                         .then(data => setScore(data.score))
-
-
-
-
-
                     if (winner !== "None") {
                         if (winner === currentUser.email) {
                             fetch('http://137.117.166.239:5000//update_user_balloon/', {
@@ -93,10 +88,9 @@ const BalloonPopMulti = () => {
                         setLeaving(true)
                     }
                 }
-    
             }, 500);
             return () => clearInterval(interval);
-        }, [currentUser, playing, stopper, leaving, winner, durationInSeconds, accuracy]);
+        }, [currentUser, playing, stopper, leaving, winner, durationInSeconds, accuracy, score]);
 
         useLayoutEffect(() => {
             if (targetRef.current) {
