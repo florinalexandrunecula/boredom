@@ -63,6 +63,10 @@ const BalloonPopMulti = () => {
                         .then(response => response.json())
                         .then(data => setScore(data.score))
 
+
+
+
+
                     if (winner !== "None") {
                         if (winner === currentUser.email) {
                             fetch('http://137.117.166.239:5000//update_user_balloon/', {
