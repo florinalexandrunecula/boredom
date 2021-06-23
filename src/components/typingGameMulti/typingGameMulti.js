@@ -27,7 +27,7 @@ const TypingGameMulti = () => {
     const [characters, setCharacters] = useState(0)
     const [accuracy, setAccuracy] = useState(100)
     const [playing, setPlaying] = useState(false)
-    const [maxCharacters, setMaxCharacters] = useState(250)
+    const [maxCharacters, setMaxCharacters] = useState(20)
     const [message, setMessage] = useState("Waiting for other player")
     const [stopper, setStopper] = useState(true)
     const [jsonAdv, setJsonAdv] = useState({'mistakes': -1, 'wpm': -1, 'accuracy': -1})
@@ -36,6 +36,8 @@ const TypingGameMulti = () => {
     const [titleStyle, setTitleStyle] = useState({color: "white"})
     const [winner, setWinner] = useState("None")
     const [score, setScore] = useState(-1)
+    const [email, setEmail] = useState("None")
+    const [returnedData, setReturnedData] = useState({ client: {}})
     const [leaving, setLeaving] = useState(false)
 
 
@@ -98,13 +100,15 @@ const TypingGameMulti = () => {
         const interval = setInterval(() => {
             if (stopper === false && playing === false && leaving === false) {
                 fetch('http://137.117.166.239:5000/check_winner/?creator=' + currentUser.email + '&finalScore=' + wpm.toString())
-                    .then(response => response.json())
-                    .then(data => setWinner(data.winner))
-                fetch('http://137.117.166.239:5000/check_winner/?creator=' + currentUser.email + '&finalScore=' + wpm.toString())
-                    .then(response => response.json())
-                    .then(data => setScore(data.score))
-                if (winner !== "None") {
-                    if (winner === currentUser.email) {
+                    .then(data => { return data.json() })
+                    .then(datum => {
+                        setReturnedData({client: datum})
+                    });
+                setWinner(returnedData["client"]["winner"])
+                setScore(returnedData["client"]["score"])
+                setEmail(returnedData["client"]["email"])
+                if (winner !== "None" && winner !== "undefined" && winner) {
+                    if (email === currentUser.email) {
                         fetch('http://137.117.166.239:5000//update_user_typing/', {
                             method: 'POST',
                             headers: {
@@ -132,7 +136,7 @@ const TypingGameMulti = () => {
 
         }, 500);
         return () => clearInterval(interval);
-    }, [currentUser, playing, stopper, leaving, winner, wpm, mistakes, accuracy, score]);
+    }, [currentUser, playing, stopper, leaving, winner, wpm, mistakes, accuracy, score, email, returnedData]);
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useKeyPress(key => {

@@ -23,7 +23,9 @@ const BalloonPopMulti = () => {
         const [stopper, setStopper] =useState(true)
         const [leaving, setLeaving] = useState(false)
         const [winner, setWinner] = useState("None")
+        const [email, setEmail] = useState("None")
         const [score, setScore] = useState(0)
+        const [returnedData, setReturnedData] = useState({ client: {}})
         const [message, setMessage] = useState("Waiting for other player")
         let propagate = true
         let dotPosition = {x: 0, y: 0}
@@ -57,13 +59,15 @@ const BalloonPopMulti = () => {
             const interval = setInterval(() => {
                 if (stopper === false && playing === false && leaving === false) {
                     fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
-                        .then(response => response.json())
-                        .then(data => setWinner(data.winner))
-                    fetch('http://137.117.166.239:5000/check_winner_mobile/?creator=' + currentUser.email + '&finalScore=' + durationInSeconds.toString())
-                        .then(response => response.json())
-                        .then(data => setScore(data.score))
-                    if (winner !== "None") {
-                        if (winner === currentUser.email) {
+                        .then(data => { return data.json() })
+                        .then(datum => {
+                            setReturnedData({client: datum})
+                        });
+                    setWinner(returnedData["client"]["winner"])
+                    setScore(returnedData["client"]["score"])
+                    setEmail(returnedData["client"]["email"])
+                    if (winner !== "None" && winner !== "undefined" && winner) {
+                        if (email === currentUser.email) {
                             fetch('http://137.117.166.239:5000//update_user_balloon/', {
                                 method: 'POST',
                                 headers: {
@@ -90,7 +94,7 @@ const BalloonPopMulti = () => {
                 }
             }, 500);
             return () => clearInterval(interval);
-        }, [currentUser, playing, stopper, leaving, winner, durationInSeconds, accuracy, score]);
+        }, [currentUser, playing, stopper, leaving, winner, durationInSeconds, accuracy, score, email, returnedData]);
 
         useLayoutEffect(() => {
             if (targetRef.current) {
