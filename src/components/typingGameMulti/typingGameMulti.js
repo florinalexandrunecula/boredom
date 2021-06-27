@@ -28,7 +28,7 @@ const TypingGameMulti = () => {
     const [accuracy, setAccuracy] = useState(100)
     const [playing, setPlaying] = useState(false)
     const [maxCharacters, setMaxCharacters] = useState(20)
-    const [message, setMessage] = useState("Waiting for other player")
+    const [message, setMessage] = useState("Waiting for other players")
     const [stopper, setStopper] = useState(true)
     const [jsonAdv, setJsonAdv] = useState({'mistakes': -1, 'wpm': -1, 'accuracy': -1})
     const [percentage, setPercentage] = useState(50)
@@ -194,7 +194,7 @@ const TypingGameMulti = () => {
 
             if (maxCharacters === 1) {
                 setPlaying(false)
-                setMessage("Game over! Waiting for the other player...")
+                setMessage("Game over! Waiting for the other players...")
             }
 
             updateBackend(json)

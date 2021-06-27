@@ -26,7 +26,7 @@ const BalloonPopMulti = () => {
         const [email, setEmail] = useState("None")
         const [score, setScore] = useState(0)
         const [returnedData, setReturnedData] = useState({ client: {}})
-        const [message, setMessage] = useState("Waiting for other player")
+        const [message, setMessage] = useState("Waiting for other players")
         let propagate = true
         let dotPosition = {x: 0, y: 0}
         let timeout = false
@@ -88,7 +88,7 @@ const BalloonPopMulti = () => {
                             }
                             )
                         }
-                        setMessage("The winner is: " + winner + " with a score of: "+ score + "! You can close the page now!")
+                        setMessage("The winner is: " + winner + " with a score of: "+ score / 1000 + "! You can close the page now!")
                         setLeaving(true)
                     }
                 }
@@ -157,7 +157,7 @@ const BalloonPopMulti = () => {
                     setMaxBalloons(maxBalloons - 1)
                     setDurationInSeconds(currentTime() - startTime)
                     setPlaying(false)
-                    setMessage("Wait for the other player to finish!")
+                    setMessage("Wait for the other players to finish!")
                 }
             }
         }
