@@ -66,7 +66,7 @@ export default function Dashboard() {
                                 </div>
                                 <div className="Row-stats">
                                     <div className="Column-stats">
-                                        <h4>Average Duration Balloon Pop: {returnedData["client"]["averageDurationBalloon"]} seconds</h4>
+                                        <h4>Average Duration Balloon Pop: {returnedData["client"]["averageDurationBalloon"] / 1000} seconds</h4>
                                     </div>
                                 </div>
                             </div>
